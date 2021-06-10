@@ -42,6 +42,17 @@ There are bonus marks available for this course.
 
 ---
 
+# Need a Shell?
+
+Free Credits
+
+* AWS via GitHub Education
+  * https://education.github.com/pack
+* Google Cloud Platform
+  * https://adamy.io/cs6443-gcp-credit
+
+---
+
 # Reports
 
 {{% section %}}
