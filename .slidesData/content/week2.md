@@ -170,7 +170,6 @@ Source: Topic 2 Challenge Outline
 * HTTP headers
 * Secure Cookie Sessions
 * JSON Web Token (aka JWT)
-* DNS Enumeration
 * Or up to you!
 
 (This doesn't count towards bonus marks btw)
