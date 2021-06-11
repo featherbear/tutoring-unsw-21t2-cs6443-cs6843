@@ -106,7 +106,7 @@ Website that use 2FA SMS are bad.
 
 But other 2FA methods can be inconvenient...
 
-* Email verfication
+* Email verification
 * OTP
 
 inconvenient `~=` sorta safer...
