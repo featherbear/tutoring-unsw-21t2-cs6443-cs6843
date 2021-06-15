@@ -12,6 +12,42 @@ draft: true
 
 ---
 
+## [ALPACA](https://alpaca-attack.com/)
+
+{{% section %}}
+
+![](https://nakedsecurity.sophos.com/wp-content/uploads/sites/2/2021/06/aa-1200.png?resize=780,408)
+
+**A**pplication **L**ayer **P**rotocol (**A**...) **C**onfusion (**A**...)
+
+---
+
+<img src="https://alpaca-attack.com/media/img/android-chrome-512x512.png" height="200px">
+
+* Confusion Attack
+  * MITM capability allows access to other secured services that share SSL/TLS certificates.
+
+---
+
+![](../week3-shared/alpaca-pokemon.jpg)
+
+* Lots of requirements for the vulnerability to work
+
+---
+
+* Mitigations
+  * SNI - Server Name Indication
+  * ALPN - Application-Layer Protocol Negotiation
+  * Unique SSL/TLS certificates - Let's Encrypt
+
+&nbsp;  
+
+> [alpaca-attack.com](https://alpaca-attack.com)
+
+{{% /section %}}
+
+---
+
 {{< slide content="secedu.goodfaith" >}}
 
 ---
@@ -24,7 +60,8 @@ draft: true
 
 &nbsp;  
 
-Challenge walkthroughs, coll things?  
+Challenge walkthroughs, cool things?  
+
 > Bonus marks!!!
 
 ---
@@ -81,33 +118,68 @@ Rate Limiting
 
 ---
 
-More recon
+{{< slide class="center" >}}
 
-robots.txt
-sitemap.xml
+## More recon
+
+> [robots.txt](https://www.google.com/robots.txt)
+
+> [sitemap.xml](https://www.google.com/sitemap.xml)
 
 ---
 
 ## Password Reset
 
-Image of facebook what's your secret agent name____
+![](https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20(9)(140).jpg)
+
+Thanks for your birth date <3
 
 ---
 
 ## HTTPS Downgrade
 
----
+{{% section %}}
 
-HSTS
+* HTTPS = more difficult to intercept
+* HTTP = easily interceptable
 
-
-## Cookies
-
-HTTP Only, Secure, Encoding
-
-OAuth
-
+MITM: "Actually, let's use HTTP instead"
 
 ---
 
-ALPACA Vulnerability
+#### CSP
+
+> Content Security Policy
+
+Images, scripts, styles, etc can only be fetched from certain locations
+
+_More on this in later weeks..._
+
+---
+
+#### HSTS
+
+> HTTP Strict Transport Security
+
+* A list of HTTPS-only sites
+* [HSTS Preload List](https://hstspreload.org/)
+  * Hardcoded into major web-browsers
+
+{{% /section %}}
+
+---
+
+## Cookie Protection
+
+* HTTP Only - Not accessible through JS
+* Secure - Only for HTTPS
+* <s>base64 encoding</s> no.
+
+---
+
+## OAuth
+
+![](https://developer.atlassian.com/cloud/connect/images/connect-oauth-impersonation-flow.png)
+
+---
+
