@@ -3,12 +3,38 @@ title: "Week 3"
 layout: "bundle"
 outputs: ["Reveal"]
 date: 2021-06-11T19:13:51+10:00
-draft: true
 ---
 
 {{< slide class="center" >}}
 
 ## Week 3
+
+---
+
+{{< slide content="secedu.goodfaith" >}}
+
+---
+
+### About marks
+
+* Apart from Topic 1 challenges (Recon), all challenges are awardable. 
+* Challenges in the criteria outline the credit mark
+* Full marks = do all the challenges
+
+---
+
+{{< slide class="center" >}}
+
+## SUHHHHHHH
+## LOOOOOOOO
+## SHOOOONZZ
+
+&nbsp;  
+
+Challenge walkthroughs, cool things?  
+HAAS, Recon, ...
+
+> Bonus marks!!!
 
 ---
 
@@ -48,73 +74,19 @@ draft: true
 
 ---
 
-{{< slide content="secedu.goodfaith" >}}
-
----
-
 {{< slide class="center" >}}
 
-## SUHHHHHHH
-## LOOOOOOOO
-## SHOOOONZZ
-
-&nbsp;  
-
-Challenge walkthroughs, cool things?  
-
-> Bonus marks!!!
+> [Current Leaderboard](http://plsplsplssscanicomefir.st)
 
 ---
 
-## Content Review QUIZ?
+# Upcoming
 
-Topic: User Identity and Authentication  
-Period: Week 2 - 3
+* Mid-semester Exam - Week 5
+  * Locations: In-person, also available remotely
+  * Practice
 
-Authentication is
-- Validating the user is the identity they claim
-Magic
-Giving the user permissions/access based on their identity
-The green padlock in the browser
-
-Authorisation is
-Validating the user is the identity they claim
-Magic
-- Giving the user permissions/access based on their identity
-The green padlock in the browser
-
-This is an example of
-https://memeguy.com/photos/images/password-already-in-use-262036.png
-
-Information Disclosure
-Bad Programming
-
-Add cookie monster
-C is for ______
-
-Cookies!
-
-
-
-What is Hashing
-- One way function
-- Hash brown
-- Easily reversed
-- Encryption
-
-What is a salt?
-- 🧂
-- 
-
-
-
-
-What are ways to prevent 
-
-
-Captcha
-Account Lockout
-Rate Limiting
+* Report 1 - Wednesday 11:59pm - Week 7
 
 ---
 
@@ -128,7 +100,7 @@ Rate Limiting
 
 ---
 
-## Password Reset
+### <s>recon</s> Social Engineering
 
 ![](https://media.proprofs.com/images/QM/user_images/2503852/New%20Project%20(9)(140).jpg)
 
@@ -136,9 +108,28 @@ Thanks for your birth date <3
 
 ---
 
-## HTTPS Downgrade
+#### CSP
+
+> Content Security Policy
+
+Images, scripts, styles, etc can only be fetched from certain locations.
+
+* i.e. Only HTTPS sites
+* i.e. Only certain websites
+
+_More on this in later weeks..._
+
+---
+
+## MITM
 
 {{% section %}}
+
+> Man In The Middle
+
+---
+
+#### Attack: HTTPS Downgrade
 
 * HTTPS = more difficult to intercept
 * HTTP = easily interceptable
@@ -147,17 +138,7 @@ MITM: "Actually, let's use HTTP instead"
 
 ---
 
-#### CSP
-
-> Content Security Policy
-
-Images, scripts, styles, etc can only be fetched from certain locations
-
-_More on this in later weeks..._
-
----
-
-#### HSTS
+#### Defense: HSTS
 
 > HTTP Strict Transport Security
 
@@ -169,11 +150,50 @@ _More on this in later weeks..._
 
 ---
 
+### Authentication vs Authorisation
+
+> `authentication`  
+> `!= authorisation`
+
+---
+
+## Cookies Bad
+
+Don't use cookies to store important stuff.  
+What if we have to?
+
+{{% section %}}
+
+---
+
 ## Cookie Protection
 
 * HTTP Only - Not accessible through JS
 * Secure - Only for HTTPS
 * <s>base64 encoding</s> no.
+
+{{% /section %}}
+
+---
+
+# Access Control
+
+* DAC - Discretionary
+* ABAC - Attribute-Based (Meta)
+* RBAC - Role-Based (Groups)
+* MAC - Mandatory (Levels)
+
+---
+
+# SSO and FID
+
+* SSO - Single Sign On
+  * Access to multiple services with the same session
+  * Note: Terms are often used incorrectly
+    * <s>Same credentials for multiple services</s>
+
+* FID - Federated Identity
+  * External authentication validation
 
 ---
 
@@ -183,3 +203,15 @@ _More on this in later weeks..._
 
 ---
 
+## misc
+
+Anything else you want me to rant about?
+
+<span style="font-size: 0.3em">Note to self: scripting</span>
+
+---
+
+# Deliverables
+
+* This topic's challenges due **THIS** Sunday 23:59pm
+* Report - Week 7
