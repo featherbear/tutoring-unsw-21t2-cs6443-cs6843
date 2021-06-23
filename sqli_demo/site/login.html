@@ -25,6 +25,17 @@
             text-align: center;
             height: 90vh;
         }
+
+        input[name=username], input[name=password] {
+            font-size: 24px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        form div:last-of-type {
+            padding-bottom: 25px;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +44,7 @@
         <form>
             <div>
                 <label for="username">Username</label>
-                <input type="username" name="username" >
+                <input type="text" name="username" autocomplete="off" >
             </div>
 
             <div>
@@ -41,7 +52,9 @@
                 <input type="password" name="password" >
             </div>
 
-            <button type="submit">Log in!</button>
+            <button type="submit" class="t1">Log in (easy)</button>
+            <button type="submit" class="t2">Log in (bracket in syntax)</button>
+            <button type="submit" class="t3">Log in (no OR, silent)</button>
         </form>
         <div class="error">
             <h3>Error</h3>
@@ -54,25 +67,35 @@
     <script>
         document.querySelector('form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            document.querySelector('.error').classList.remove('isActive')
-            const result = await fetch("/doLogin", {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                method: "POST",
-                body: JSON.stringify(Object.fromEntries(new FormData(document.querySelector('form')).entries()))
-            }).then(r => r.json())
-
-            if (!result.status) {
-                document.querySelector('.error').classList.add('isActive')
-                document.querySelector('.error p').innerText = result.message
-            } else {
-                document.cookie = `auth=${result.auth}`
-                window.location = "/"
-            }
         })
 
-</script>
+        function generateHandleClick(endpoint) {
+            return async function (e) {
+                e.preventDefault();
+                document.querySelector('.error').classList.remove('isActive')
+
+                const result = await fetch(`/doLogin/${endpoint}`, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    method: "POST",
+                    body: JSON.stringify(Object.fromEntries(new FormData(document.querySelector('form')).entries()))
+                }).then(r => r.json())
+
+                if (!result.status) {
+                    document.querySelector('.error').classList.add('isActive')
+                    document.querySelector('.error p').innerText = result.message
+                } else {
+                    document.cookie = `auth=${result.auth}`
+                    window.location = "/"
+                }
+            }
+        }        
+            
+        document.querySelector('.t1').addEventListener('click', generateHandleClick('t1'))
+        document.querySelector('.t2').addEventListener('click', generateHandleClick('t2'))
+        document.querySelector('.t3').addEventListener('click', generateHandleClick('t3'))
+    </script>
 </body>
 
 </html>
