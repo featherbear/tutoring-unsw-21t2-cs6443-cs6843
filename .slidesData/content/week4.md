@@ -70,7 +70,7 @@ Information disclosure baaaad.
 Random bytes that are mixed into a passphrase to modify the hash values.
 
 * Increases entropy
-* Mitigates rainbow table attacks
+* 🌈 Mitigates rainbow table attacks
 
 ---
 
