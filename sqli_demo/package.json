@@ -1,0 +1,20 @@
+{
+  "name": "sqli_demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "featherbear",
+  "scripts": {
+    "transpile": "sucrase ./src -d ./dist --transforms typescript,imports",
+    "dev": "nodemon ./src/server.ts",
+    "start": "node ./dist/server.js",
+    "clean": "rimraf dist",
+    "build": "npm-run-all clean transpile"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "sucrase": "^3.18.2"
+  }
+}
