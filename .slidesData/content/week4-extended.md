@@ -1,8 +1,8 @@
 ---
-title: "Week 4"
+title: "Week 4 Extended"
 layout: "bundle"
 outputs: ["Reveal"]
-date: 2021-06-16T18:50:46+10:00
+date: 2021-06-16T18:50:47+10:00
 ---
 
 {{< slide class="center" >}}
@@ -221,6 +221,7 @@ Step 0: Figure out the syntax, and fingerprint if needed
 * Blank response? Side channel attacks
     * Timing Attacks
     * Out of Band Attacks
+        * i.e inbuilt functions (therefore fingerprint!) <!-- i.e. concat, outfile -->
 * Error-based extraction
 * Boolean-based extraction <!-- i.e. substr comparison -->
 * Subqueries
@@ -230,6 +231,8 @@ Step 0: Figure out the syntax, and fingerprint if needed
 
 ### Note
 
+* Sometimes you need to big brain the payload
+  * i.e. yesterday's lecture demo
 * Reporting a vulnerability `!=` extracting data
 * Big database? - `COUNT()` it instead
 
@@ -239,11 +242,40 @@ Step 0: Figure out the syntax, and fingerprint if needed
 
 ### Other Injections
 
+{{% section %}}
+
+##### MongoDB (NoSQL)
+
+* JSON
+* Data is transmitted as strings
+* Escape the string?
+
+---
+
 ##### Local File Inclusion
 
 * `http://website.com/getImage.php?file=image.png`
 
 * `http://website.com/getImage.php?file=/etc/passwd`
+
+---
+
+##### Server Side Template Injection
+
+e.g. Jinja templating (Python + Flask)
+
+```
+{{ "hello " + "world" }} => "hello world"
+```
+
+```sql
+{{ "".__class__.__mro__[1].__subclasses__() }}
+                     ^ the `object` class
+
+You now have a handle to every function. welp.
+```
+
+{{% /section %}}
 
 ---
 
