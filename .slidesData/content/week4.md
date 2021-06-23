@@ -231,6 +231,7 @@ Step 0: Figure out the syntax, and fingerprint if needed
 ### Note
 
 * Reporting a vulnerability `!=` extracting data
+* SQLi payload list
 * Big database? - `COUNT()` it instead
 
 ![](../week4-shared/Snipaste_2021-06-23_22-49-24.png)
