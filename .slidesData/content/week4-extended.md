@@ -210,6 +210,7 @@ Step 0: Figure out the syntax, and fingerprint if needed
 * WAF - Web Application Firewalls
   * Strip out malicious payloads
   * ...or completely block access
+* Parameterised Queries
 
 > Demo: login 3
 
