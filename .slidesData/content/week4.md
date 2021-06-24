@@ -161,8 +161,8 @@ If you have to, secure it.
 
 > user input = dangerous
 
-> ```
-           '";<lol/>../--#`ls`
+```
+'";<lol/>../--#`ls`
 ```
 
 * What?
@@ -175,7 +175,7 @@ If you have to, secure it.
 
 ###### How
 
-> ```sql
+```sql
    SELECT a FROM b WHERE a = '$userInput'
 ```
 
@@ -183,7 +183,7 @@ If you have to, secure it.
 
 Using `' OR '1'='1`
 
-> ```sql
+```sql
                            vvvvvvvvvvvvv
 SELECT a FROM b WHERE a = '' OR '1' = '1'
                            ^^^^^^^^^^^^^
@@ -217,7 +217,7 @@ Step 0: Figure out the syntax, and fingerprint if needed
 
 ## Defeating mitigations
 
-* Payload striped? Embed dummies
+* Payload stripped? Embed dummies
 * Blank response? Side channel attacks
     * Timing Attacks
     * Out of Band Attacks
