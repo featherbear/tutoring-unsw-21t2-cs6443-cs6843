@@ -132,7 +132,7 @@ wwwolf-php-webshell
 > Think back to HaaS
 
 * Only access to `kb` from `haas`
-* We could send metwprl requests that appeared to originate from the `haas` server
+* We could send network requests that appeared to originate from the `haas` server
 * Corporate / internal network?
 
 ---
