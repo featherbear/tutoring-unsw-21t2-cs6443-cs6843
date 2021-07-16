@@ -49,7 +49,7 @@ Useful things?
 
 What is an origin?
 
-> <span style="color: #f1c232">http://</span><span style="color: #00b050">www.website.com</span><span style="color: #0000ff">:80</span>
+> <span style="color: #f1c232">http://</span><span style="color: #00b050">www\.website\.com</span><span style="color: #0000ff">:80</span>
 
 origin = <span style="color: #f1c232">scheme</span> + <span style="color: #00b050">host</span> + <span style="color: #0000ff">port</span>
 
