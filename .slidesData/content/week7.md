@@ -32,7 +32,7 @@ teehee [report 2](https://www.openlearning.com/unswcourses/courses/webapp-securi
 
 ---
 
-Client Side
+<!-- Client Side
 
 * Generic term... anything on the client
 
@@ -41,7 +41,7 @@ Useful things?
 * sessionstorage
 * cookies
 
----
+--- -->
 
 ### Origin vs Site
 
