@@ -10,6 +10,7 @@
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
   "dependencies": {
+    "js-beautify": "^1.14.0",
     "polka": "next",
     "sass": "^1.35.2",
     "sirv": "^1.0.0"
