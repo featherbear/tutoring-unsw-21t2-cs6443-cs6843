@@ -1,8 +1,8 @@
 ---
-title: "Week 8"
+title: "Week 8 Extended"
 layout: "bundle"
 outputs: ["Reveal"]
-date: 2021-07-22T01:30:17+10:00
+date: 2021-07-22T04:16:17+10:00
 ---
 
 {{< slide class="center" >}}
@@ -146,10 +146,17 @@ Only allow scripts / images / styles / ... from ____
 
 &nbsp;
 
+---
 
 #### Exploits
 
-Corrupt the CSP header? Response splitting?
+* Exploiting trust
+  * Redirected
+  * Code Execution
+  * Inheritance
+* Invalidating restrictions
+  * Corrupt the CSP header
+  * Response splitting
 
 {{% /section %}}
 
