@@ -10,6 +10,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import json from '@rollup/plugin-json'
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -40,6 +41,7 @@ export default {
 					hydratable: true
 				}
 			}),
+			json(),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
 				publicPath: '/client/'
@@ -97,6 +99,7 @@ export default {
 				},
 				emitCss: false
 			}),
+			json(),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
 				publicPath: '/client/',
@@ -125,6 +128,7 @@ export default {
 					'process.env.NODE_ENV': JSON.stringify(mode)
 				},
 			}),
+			json(),
 			commonjs(),
 			typescript({ sourceMap: dev }),
 			!dev && terser()

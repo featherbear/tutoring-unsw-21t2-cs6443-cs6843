@@ -15,6 +15,10 @@
 	}
 </style>
 
+<svelte:head>
+	<title>eks ess ess</title>
+</svelte:head>
+
 <Nav {segment}/>
 
 <main>
