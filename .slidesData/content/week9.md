@@ -3,7 +3,6 @@ title: "Week 9"
 layout: "bundle"
 outputs: ["Reveal"]
 date: 2021-07-29T00:15:02+10:00
-draft: true
 ---
 
 {{< slide class="center" >}}
