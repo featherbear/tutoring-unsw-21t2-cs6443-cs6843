@@ -113,6 +113,15 @@ nginx, let's encrypt, certbot, docker, caddy
 
 ---
 
+## SecOps
+
+* SDN VPNs vs Browsing VPNs
+* VPNs and anonymity. Do they work?
+* VPNs and bandwidth. Bottlenecks?
+* P2P SDNs? ZeroTier, Nebula, Tailscale, Hamachi?
+  
+---
+
 {{< slide class="center" >}}
 
 😊
