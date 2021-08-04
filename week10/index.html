@@ -1,0 +1,49 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><title>Week 10</title><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black-translucent"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel=stylesheet href=../reveal-js/css/reset.css><link rel=stylesheet href=../reveal-js/css/reveal.css><link rel=stylesheet href=../reveal-js/css/theme/black.css id=theme><link rel=stylesheet href=../highlight-js/default.min.css></head><body><div class=reveal><div class=slides><section data-noprocess data-shortcode-slide class=center><h2 id=week-10>Week 10</h2></section><section data-noprocess data-shortcode-slide class=center><h2 id=good-faith-policy>Good Faith Policy</h2><p>haha security go brr</p></section><section><h2 id=final-exam>Final Exam</h2><section data-shortcode-section><ul><li><p>Date: 19th August</p></li><li><p>Time: 1pm - 4pm (3 hours)</p></li><li><p>Weight: 40%</p></li><li><p>Hurdle: 50% to pass</p></li></ul><blockquote><p>More: <a href=https://www.openlearning.com/unswcourses/courses/webapp-security/exam/>openlearning.com/&mldr;/exam</a></p></blockquote></section><section><ul><li>Everything is assessable</li><li>Some easy, some medium(er), some hard(er)</li><li>Practicals + Written</li><li>Submit a SHORT writeup<ul><li>e.g. &ldquo;Cookie tampering to gain admin access. Change JWT admin=1&rdquo;</li></ul></li><li>Try not to cheat™</li><li>Take breaks</li><li>You got this!</li></ul></section></section><section><h3 id=smysour-experience><s>My</s>Our Experience</h3><div style=display:flex;flex-direction:row;align-items:center;text-align:center><div style=flex:1><subtitle style="font-size: 0.6em; color: #ccc">Did you like COMP6[84]3?</subtitle>
+<img height=300 style="background:0 0;margin:none;border:0;box-shadow:none" src="../yes but in red_greytext.png"></div><div><ul><li>What <u>did</u> you like?</li><li>What <u>didn't</u> you like?</li><li>What can be improved?</li></ul><div style=font-size:.5em>Lectures, challenges, my tutorials, content<span style=font-size:.5em>, me?</span></div></div><div style=border:0;margin:0;padding:0><img height=180px style="background:0 0;margin:none;border:0;box-shadow:none" src="https://media1.giphy.com/media/yxVRICzg06MyG73Kb6/giphy.gif?cid=ecf05e47q9f12bhcvry1swpk620pzj2bo0djajm5hlh03tyc&rid=giphy.gif&ct=g"></div></div><blockquote><p><a href=https://myexperience.unsw.edu.au>https://myexperience.unsw.edu.au</a></p></blockquote><div timer=600></div><script>window.addEventListener('load',function(){for(let timerElem of document.querySelectorAll('[timer]'))timerElem.style.fontFamily='monospace'
+function checkTimerOnCurrentPage(){let slideElem=document.querySelector('section.present')
+for(let timerElem of slideElem.querySelectorAll('[timer]')){let seconds=Math.trunc(timerElem.getAttribute('timer'))
+if(isNaN(seconds)){console.warn(timerElem,'has a `timer` attribute with an invalid value')
+continue}
+if(timerElem._timerInterval){clearInterval(timerElem._timerInterval)
+delete timerElem._timerInterval}
+setTimeout((origIntervalId=>()=>{if(timerElem._timerInterval==origIntervalId)
+clearInterval(origIntervalId)})((()=>{let remaining=new Date(seconds*1000)
+return timerElem._timerInterval=setInterval(()=>{timerElem.innerText=remaining.toISOString().substr(11,8)
+remaining.setSeconds(remaining.getSeconds()-1)},1000)})()),(seconds+2)*1000)}}
+Reveal.addEventListener('slidechanged',checkTimerOnCurrentPage)
+checkTimerOnCurrentPage()})</script></section><section><h2 id=more-on-devsecops>More on DevSecOps</h2><section data-shortcode-section><blockquote><p>Last week: How do I deploy and run my applications, whilst being secure?</p></blockquote><ul><li>Load Balancing?</li><li>SSL?</li><li>Zero Trust?</li><li>Docker?</li></ul></section><section><blockquote><p>Securing CI/CD from bad things</p></blockquote><ul><li>Tokens, Keys, Secrets, Envs<ul><li>Who has access?</li><li>Exfiltration?</li></ul></li><li>Malicious Code</li><li>Service Accounts</li><li>Service Machines</li><li>SAST / DAST</li><li>Limits</li></ul></section></section><section><h3 id=git-is-it-really-gone>Git: Is it really gone?</h3><section data-shortcode-section><pre><code class=language-bash>$&gt; ls
+# -rwxrwxr-x 1 andrew andrew  12K Jul 12 15:50 server.py
+# -rw------- 1 andrew andrew 1.8K Jul 24 18:28 my_secret.key
+
+$&gt; git status
+# On branch dev
+# nothing to commit, working tree clean
+
+echo my_secret.key &gt;&gt; .gitignore
+git add .gitignore
+git commit -m &quot;Ignore confidential data&quot;
+git push
+</code></pre><p>ima ignore the secret key file, this is safe&mldr; right?</p></section><section><pre><code class=language-bash>$&gt; git status
+# On branch dev
+# nothing to commit, working tree clean
+
+git rm my_secret.key     # &lt;&lt;&lt; Alright we should be good
+
+$&gt; ls
+# -rwxrwxr-x 1 andrew andrew  12K Jul 12 15:50 server.py
+
+git commit -m &quot;Remove confidential data&quot;
+git push
+</code></pre><p>Oh.. okay I&rsquo;ll just delete the file then?</p></section><section><pre><code class=language-bash>git rm --cached my_secret.key      # Remove the key from git
+echo my_secret.key &gt;&gt; .gitignore   ## Git ignore it
+git add .gitignore                 ### Commit .gitignore
+# rm -rf / --no-preserve-root      #### &lt;&lt;&lt; wait not this one
+
+git commit --amend -m &quot;Removed confidential data&quot;
+           # ^ Okay so this edits the previous commit
+
+git push -f       # &lt;&lt;&lt; FORCE PUSH TO PRODUCTION LET'S GOOOO
+</code></pre><p>SURELY now???<br>I&rsquo;ve modified the commit which I accidentally committed the secret key file. It&rsquo;s now even gitignored!</p></section></section><section><h3 id=keeping-your-git--codebase-secure>Keeping your Git + codebase secure</h3><ul><li>.gitignore</li><li>Git Hooks</li><li><a href=https://rtyley.github.io/bfg-repo-cleaner/>BFG</a></li><li>Keep the <code>.git</code> folder safe!</li><li>.env[.sample]</li><li><s>Employ <a href=https://github.com/kelseyhightower/nocode>nocode</a></s></li></ul></section><section data-noprocess data-shortcode-slide class=center><p>That&rsquo;s all!</p><p>Thanks for having me</p><p>😊</p></section></div></div><script type=text/javascript src=../reveal-hugo/object-assign.js></script><a href=../reveal-js/css/print/ id=print-location style=display:none></a><script type=text/javascript>var printLocationElement=document.getElementById('print-location');var link=document.createElement('link');link.rel='stylesheet';link.type='text/css';link.href=printLocationElement.href+(window.location.search.match(/print-pdf/gi)?'pdf.css':'paper.css');document.getElementsByTagName('head')[0].appendChild(link);</script><script type=application/json id=reveal-hugo-site-params>{"center":false,"history":true,"pdf_separate_fragments":false,"slide_number":true}</script><script type=application/json id=reveal-hugo-page-params>null</script><script src=../reveal-js/js/reveal.js></script><script type=text/javascript>function camelize(map){if(map){Object.keys(map).forEach(function(k){newK=k.replace(/(\_\w)/g,function(m){return m[1].toUpperCase()});if(newK!=k){map[newK]=map[k];delete map[k];}});}
+return map;}
+var revealHugoDefaults={center:true,controls:true,history:true,progress:true,transition:"slide"};var revealHugoSiteParams=JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);var revealHugoPageParams=JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);var options=Object.assign({},camelize(revealHugoDefaults),camelize(revealHugoSiteParams),camelize(revealHugoPageParams));Reveal.initialize(options);</script><script type=text/javascript src=../reveal-js/plugin/markdown/marked.js></script><script type=text/javascript src=../reveal-js/plugin/markdown/markdown.js></script><script type=text/javascript src=../reveal-js/plugin/highlight/highlight.js></script><script type=text/javascript src=../reveal-js/plugin/zoom-js/zoom.js></script><script type=text/javascript src=../reveal-js/plugin/notes/notes.js></script><script type=text/javascript>document.title+=" | COMP6[84]43 Tutorial Slides";window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']]},svg:{fontCache:'global'}};</script><script type=text/javascript id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js></script><script>if(window.location.search.match(/\?print-pdf/gi)){function insertCSS(src){const link=document.createElement('link');link.rel='stylesheet';link.type='text/css';link.href=src;document.getElementsByTagName('head')[0].appendChild(link);}
+insertCSS('\/reveal-js\/css\/print\/pdf.css');insertCSS('\/hideHomeButton.css');}</script><script>(function(f,a,t,h,o,m){a[h]=a[h]||function(){(a[h].q=a[h].q||[]).push(arguments)};o=f.createElement('script'),m=f.getElementsByTagName('script')[0];o.async=1;o.src=t;o.id='fathom-script';m.parentNode.insertBefore(o,m)})(document,window,'//ss.featherbear.cc/tracker.js','fathom');fathom('set','siteId','VQPYQ');fathom('trackPageview');</script><a id=homeButton style=position:fixed;bottom:8px;left:8px;z-index:31;font-family:Helvetica,sans-serif;font-size:12px;line-height:1;color:#fff;background-color:rgba(0,0,0,.4);padding:5px;text-decoration:none href=../>Home</a></body></html>
