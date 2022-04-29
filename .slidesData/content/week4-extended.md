@@ -208,7 +208,7 @@ Step 0: Figure out the syntax, and fingerprint if needed
 * Disable debug logging
   * No error messages, maybe just a blank screen?
 * WAF - Web Application Firewalls
-  * Strip out malicious payloads
+  * Strip out malicious payloads™
   * ...or completely block access
 * Parameterised Queries
 
