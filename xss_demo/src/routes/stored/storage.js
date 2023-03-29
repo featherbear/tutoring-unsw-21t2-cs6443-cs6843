@@ -10,3 +10,8 @@ export function post(req, res) {
 export function get(req, res) {
     return res.end(JSON.stringify(data))
 }
+
+export function del(req, res) {
+    data = []
+    return res.end(JSON.stringify({status: true}))
+}

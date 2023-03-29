@@ -10,6 +10,13 @@
   });
 
   let formData = "";
+
+  function reset() {
+    fetch("/stored/storage", {
+      method: "DELETE",
+    }).then(updateFn)
+  }
+
   function onSubmit() {
     if (!formData) return;
     fetch("/stored/storage", {
@@ -42,3 +49,5 @@
   <input type="text" name="input" bind:value={formData} />
   <button class="submit">Submit post!</button>
 </form>
+
+<button class="submit" on:click={reset}>Reset Database</button>
