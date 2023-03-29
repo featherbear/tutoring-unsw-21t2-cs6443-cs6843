@@ -1,3 +1,5 @@
+/* This is our awesome database */
+
 let data = []
 
 export function post(req, res) {
