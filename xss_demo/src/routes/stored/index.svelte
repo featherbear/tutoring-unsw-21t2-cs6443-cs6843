@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
   let posts = [];
   let updateFn = async () => {
-    posts = await fetch("/storage").then((r) => r.json());
+    posts = await fetch("/stored/storage").then((r) => r.json());
   };
   onMount(() => {
     setInterval(updateFn, 1000);
