@@ -9,7 +9,7 @@
 	}
 
 	h1 {
-		font-size: 2.8em;
+		font-size: 1.8em;
 		text-transform: uppercase;
 		font-weight: 700;
 		margin: 0 0 0.5em 0;
@@ -31,15 +31,13 @@
 
 	@media (min-width: 480px) {
 		h1 {
-			font-size: 4em;
+			font-size: 2em;
 		}
 	}
 </style>
 
-<svelte:head>
-	<title>Sapper project template</title>
-</svelte:head>
-
 <figure>
 	<img alt="Success Kid" src="{successkid}">
 </figure>
+
+<h1>Make XSS great again</h1>

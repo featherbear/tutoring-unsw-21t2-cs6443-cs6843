@@ -12,7 +12,7 @@
   let formData = "";
   function onSubmit() {
     if (!formData) return;
-    fetch("/storage", {
+    fetch("/stored/storage", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: formData }),
