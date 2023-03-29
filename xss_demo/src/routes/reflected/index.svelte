@@ -8,7 +8,7 @@
 
 {#if queries?.get("q")}
   <div>
-    No results found for {@html decodeURIComponent(queries?.get("q") || "")}
+    {@html "No results found for " + decodeURIComponent(queries?.get("q") || "") + ". Try again!"}
   </div>
 {:else}
   <div class="error">Enter something to search for...</div>
