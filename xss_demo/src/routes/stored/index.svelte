@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import BugHeader from "../../components/BugHeader.svelte";
   let posts = [];
   let updateFn = async () => {
     posts = await fetch("/stored/storage").then((r) => r.json());
@@ -14,7 +15,7 @@
   function reset() {
     fetch("/stored/storage", {
       method: "DELETE",
-    }).then(updateFn)
+    }).then(updateFn);
   }
 
   function onSubmit() {
@@ -32,6 +33,8 @@
 </script>
 
 <div>
+  <BugHeader />
+
   <h1>Posts</h1>
 
   <ul>

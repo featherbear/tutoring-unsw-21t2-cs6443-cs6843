@@ -51,8 +51,8 @@
 <nav>
 	<ul>
 		<li><a aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
-		<li><a aria-current="{segment === 'stored' ? 'page' : undefined}" href="stored">stored xss</a></li>
 		<li><a aria-current="{segment === 'reflected' ? 'page' : undefined}" href="reflected">reflected xss</a></li>
+		<li><a aria-current="{segment === 'stored' ? 'page' : undefined}" href="stored">stored xss</a></li>
 		<li><a aria-current="{segment === 'dom' ? 'page' : undefined}" href="dom">dom xss</a></li>
 	</ul>
 </nav>

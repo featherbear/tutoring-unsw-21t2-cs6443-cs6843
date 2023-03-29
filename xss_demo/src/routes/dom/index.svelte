@@ -1,9 +1,13 @@
 <script>
   let specifiers = ["innerHTML", "innerText", "textContent"];
+  import CodeBlock from "../../components/CodeBlock.svelte";
   import { html as beautify } from "js-beautify";
+  import BugHeader from "../../components/BugHeader.svelte";
 </script>
 
 <div>
+  <BugHeader />
+
   {#each specifiers as specifier}
     <form
       entry
@@ -21,8 +25,9 @@
       <input id="input_{specifier}" type="text" placeholder="Enter content" />
       <button type="Submit">Add</button>
       <div id="elem_{specifier}" />
-      <code id="code_{specifier}" />
+      <CodeBlock id="code_{specifier}" />
     </form>
+    <hr />
   {/each}
 </div>
 
@@ -46,15 +51,6 @@
     &:hover {
       cursor: pointer;
       background-color: rgba(0, 0, 0, 0.03);
-    }
-
-    code {
-      display: block;
-      margin-top: 5px;
-      white-space: pre;
-      &:empty::before {
-        content: "No HTML content inside element";
-      }
     }
   }
 </style>

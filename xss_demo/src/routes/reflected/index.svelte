@@ -1,23 +1,42 @@
 <script>
-  let queries;
+  import BugHeader from "../../components/BugHeader.svelte";
+  import Result from "./Result.svelte";
+
+  let query;
+  let preview;
   import { onMount } from "svelte";
+  import CodeBlock from "../../components/CodeBlock.svelte";
   onMount(() => {
-    queries = new URLSearchParams(window.location.search);
+    query = new URLSearchParams(window.location.search).get("q") || "";
+
+    if (query) {
+      fetch("/reflected/asSSR" + window.location.search)
+        .then((r) => r.json())
+        .then((j) => {
+          preview = j.html
+            .replace("<!-- HTML_TAG_START -->", "")
+            .replace("<!-- HTML_TAG_END -->", "");
+        });
+    }
   });
 </script>
 
-{#if queries?.get("q")}
-  <div>
-    {@html "No results found for " + decodeURIComponent(queries?.get("q") || "") + ". Try again!"}
-  </div>
-{:else}
-  <div class="error">Enter something to search for...</div>
-{/if}
+<BugHeader />
+
+<Result {query} />
+
+<hr />
 
 <form>
   <input name="q" placeholder="Search for something here" />
   <button type="submit">Search!</button>
 </form>
+
+<hr />
+
+{#if query}
+  <CodeBlock data={preview} />
+{/if}
 
 <style lang="scss">
   input[name="q"] {
