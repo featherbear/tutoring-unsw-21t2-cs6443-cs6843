@@ -10,6 +10,3 @@
 [submodule "basic_http_response_header_splitting"]
 	path = basic_http_response_header_splitting
 	url = https://github.com/featherbear/demo-response-header-splitting
-[submodule "webcms4"]
-	path = webcms4
-	url = https://github.com/featherbear/demo-cs6443-webcms4
