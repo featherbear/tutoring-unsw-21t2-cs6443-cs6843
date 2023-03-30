@@ -7,3 +7,6 @@
 [submodule "webcms4"]
 	path = webcms4
 	url = https://github.com/featherbear/cs6443-webcms4-demo
+[submodule "sqli_demo"]
+	path = sqli_demo
+	url = https://github.com/featherbear/demo-sqli
