@@ -4,3 +4,6 @@
 [submodule "webcms4/repo"]
 	path = webcms4/repo
 	url = https://github.com/featherbear/cs6443-webcms4-demo
+[submodule "xss_demo"]
+	path = xss_demo
+	url = https://github.com/featherbear/demo-xss
